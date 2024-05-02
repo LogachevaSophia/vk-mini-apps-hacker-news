@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import storeComment from "../store/AccoredeonStore.tsx";
 import storePost from "../../postItem/store/store.tsx";
 import Spinner from "../../../widgets/Spinner/Spinner.tsx";
+import ReactHtmlParser from 'react-html-parser';
 
 const AccordeonItem = observer(({ commentId }) => {
     const [isActive, setIsActive] = useState(false);
@@ -47,7 +48,7 @@ const AccordeonItem = observer(({ commentId }) => {
                             <div onClick={() => {toggle();
                                 setIsActive(!isActive)
                             }} style={{ cursor: "pointer" }}>
-                                <span>{curComment?.text} </span>
+                                <span>{ReactHtmlParser(curComment?.text)} </span>
                                 <br></br>
                                 <div style={{ textAlign: "right" }}>Автор: <b>{curComment?.by}</b></div>
                                 {curComment?.kids && <div>{isActive ? 'Скрыть' : 'Раскрыть'}</div>}
