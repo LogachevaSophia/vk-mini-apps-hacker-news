@@ -40,7 +40,7 @@ const AccordeonItem = observer(({ commentId }) => {
    
     return (
         <>
-            {!curComment?.text && <Spinner loading={true} />}
+            {!curComment?.text && !curComment?.deleted && <Spinner loading={true} />}
             {curComment?.text &&
                 <Card mode="shadow" style={{ margin: "7px 15px" }} >
                     <Div>
