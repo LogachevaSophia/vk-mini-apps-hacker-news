@@ -25,7 +25,6 @@ class StorePost{
             runInAction(()=>{
                 
                 this.currentPost = newsData;
-                // console.log(newsData)
                 this.isLoading = false;
             })
         }

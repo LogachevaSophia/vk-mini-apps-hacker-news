@@ -6,7 +6,6 @@ class ConfigPostList{
     getFullNewsList = async (): Promise<post[]> => {
         try {
             const latestNewsIds = await getLatestNews();
-            // console.log(latestNewsIds)
             const newsDetails = await Promise.all(latestNewsIds.map(newsId => getNewsById(newsId)));
             return newsDetails.filter(news => news !== null); // Фильтруем нулевые значения
         } catch (error) {

@@ -8,15 +8,15 @@ import { Div } from "@vkontakte/vkui";
 
 const PostList = observer(() => {
     useEffect(() => {
-        const intervalId = setInterval(() => {
-
-            storepostList.getList();
-        }, 60000);
-
+        if (!storepostList.listPostArr?.length)
         storepostList.getList(); // вызываем функцию getList сразу после монтирования компонента
 
+        const intervalId = setInterval(() => {
+            storepostList.getList();
+        }, 60000);
+    
         return () => clearInterval(intervalId); // Очистка интервала при размонтировании компонента
-    }, []); // передан пустой массив зависимостей
+    }, []);
 
 
     return (
@@ -31,7 +31,6 @@ const PostList = observer(() => {
                         }}></Icon16Replay>
                     </Div>
                     {storepostList.listPostArr?.map((el, ind) => {
-                        // console.log(el)
                         return <Post key={el.id} title={el.title} rating={el.score} created={el.time} index={ind + 1} loginAuthor={el.by} id={el.id}></Post>
                     })
                     }

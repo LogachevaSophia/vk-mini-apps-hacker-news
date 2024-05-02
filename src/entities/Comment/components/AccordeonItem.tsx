@@ -21,18 +21,16 @@ const AccordeonItem = observer(({ commentId }) => {
         };
 
     }, [])
-    useEffect(() => {
-        console.log(curComment)
-    }, [curComment])
+
     const toggle = () => {
         if (isActive){
             //закрывают
-            console.log("закрывают")
+          
             storePost?.setCountKids(-(curComment?.kids?.length) || 0)
         }
         else{
             //открывают
-            console.log("открывают")
+           
             storePost?.setCountKids((curComment?.kids?.length) || 0)
         }
     }

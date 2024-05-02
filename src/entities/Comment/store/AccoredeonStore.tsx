@@ -25,7 +25,6 @@ class StoreComment{
         runInAction(()=>{
             
             this.count+=1
-            // console.log(this.count)
             
         })
         this.isLoading = false;

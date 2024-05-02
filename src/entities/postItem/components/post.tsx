@@ -35,11 +35,11 @@ const Post = observer(() => {
 
                             <a href={storePost.currentPost?.url}> Источник</a>
                             {storePost.currentPost?.kids && <Title level="3">Количество комментариев: {storePost.currentPost?.countKids}</Title>}
-                            <Div >
+                            {storePost.currentPost?.kids  && <Div >
                                 <Icon16Replay fill={"#0077FF"} style={{ cursor: "pointer" }} onClick={() => {
                                     storePost?.updateComments(storePost.currentPost?.id);
                                 }}></Icon16Replay>
-                            </Div>
+                            </Div>}
                             {
                                 storePost.currentPost?.kids && storePost.currentPost?.kids?.map(el => {
                                     return (

@@ -18,12 +18,10 @@ class StorePostList{
     
 
     getList = async () =>  {
-        console.log(new Date().getTime())
         this.isLoading = true;
         const newsData =  await configPostLis.getFullNewsList()
         runInAction(()=>{
             this.listPostArr = newsData;
-            // console.log(newsData)
             this.isLoading = false;
         })
         
