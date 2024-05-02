@@ -30,8 +30,8 @@ On the detailed news viewing page, you can see the date of creation, a link to t
 In the project directory, you can:
 ### init node_modules
 
-### yarn install
+### `yarn install`
 
 ## Run:
 
-### yarn start
+### `yarn start`
